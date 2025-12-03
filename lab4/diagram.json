@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Илья Слепец",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-h2-devkitm-1", "id": "esp", "top": -16.97, "left": 4.5, "attrs": {} },
+    {
+      "type": "wokwi-ky-040",
+      "id": "encoder1",
+      "top": -16.2,
+      "left": -140.7,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-a4988", "id": "drv1", "top": 91.4, "left": 226, "rotate": 270, "attrs": {} },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": -177.89,
+      "left": 144.88,
+      "attrs": { "display": "angle" }
+    }
+  ],
+  "connections": [
+    [ "esp:GND.2", "encoder1:GND", "black", [ "h0" ] ],
+    [ "esp:5V", "encoder1:VCC", "red", [ "h0" ] ],
+    [ "encoder1:CLK", "esp:1", "green", [ "h26.8", "v-38.4" ] ],
+    [ "encoder1:DT", "esp:2", "green", [ "v9.6", "h45.9", "v-38.4" ] ],
+    [ "encoder1:SW", "esp:3", "green", [ "v19.2", "h65.1", "v-38.4" ] ],
+    [ "drv1:SLEEP", "drv1:RESET", "green", [ "v9.6", "h-9.6" ] ],
+    [ "stepper1:B-", "drv1:1B", "black", [ "h-0.01", "v48.15" ] ],
+    [ "stepper1:B+", "drv1:1A", "green", [ "v0" ] ],
+    [ "stepper1:A+", "drv1:2A", "blue", [ "v0" ] ],
+    [ "stepper1:A-", "drv1:2B", "red", [ "v0" ] ],
+    [ "esp:GND.6", "drv1:GND.2", "black", [ "h36.92", "v57.6", "h96" ] ],
+    [ "drv1:DIR", "esp:8", "yellow", [ "v28.8", "h-172.8", "v-105.6" ] ],
+    [ "esp:22", "drv1:STEP", "magenta", [ "v9.6", "h8.12", "v96", "h172.8" ] ],
+    [ "esp:5V", "drv1:VDD", "red", [ "h-48", "v-172.8", "h163.2", "v96", "h153.6", "v9.6" ] ]
+  ],
+  "dependencies": {}
+}
