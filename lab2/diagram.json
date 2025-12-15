@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "author": "Егокс Уколов",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-microphone", "id": "mic", "top": -7.38, "left": -110.61, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "mic:1", "esp:D34", "blue", [ "v0" ] ],
+    [ "mic:2", "esp:GND.2", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
